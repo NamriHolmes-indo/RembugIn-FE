@@ -4,7 +4,10 @@
 		<h5>Nama User</h5>
 	</div>
 
-	<main class="isiPost"></main>
+	<main class="gambarPost">
+		<img src="imageError.png" alt="" />
+		<p>Caption</p>
+	</main>
 
 	<div class="likeCommentContainer">
 		<div class="likeCo">

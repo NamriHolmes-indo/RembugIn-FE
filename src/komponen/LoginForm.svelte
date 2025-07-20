@@ -11,6 +11,6 @@
 	<h2>Login</h2>
 	<input type="email" bind:value={email} placeholder="Email" required />
 	<input type="password" bind:value={password} placeholder="Password" required />
-	<button type="submit">Login</button>
+	<button type="submit" class="tombolDafLog">Login</button>
 	<a href="#">Lupa password?</a>
 </form>

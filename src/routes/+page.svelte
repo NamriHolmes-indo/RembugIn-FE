@@ -3,5 +3,5 @@
 	import HomeSocial from '../pages/HomeSocial.svelte';
 </script>
 
-<!-- <Gerbang /> -->
-<HomeSocial />
+<Gerbang />
+<!-- <HomeSocial /> -->

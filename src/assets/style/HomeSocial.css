@@ -24,11 +24,6 @@ body {
   width: 100%;
   margin: 0px;
 }
-.homeSocial .navHome {
-  background-color: white;
-  height: 100%;
-  min-height: 100vh;
-}
 .homeSocial .editButton {
   background-color: transparent;
   border: none;
@@ -38,10 +33,12 @@ body {
 .homeSocial .Kiri {
   padding: clamp(15px, 5%, 50px) clamp(10px, 2.5%, 25px);
   box-sizing: border-box;
-  width: 28%;
+  width: 26%;
   display: flex;
   flex-direction: column;
   gap: 50px;
+  background-color: white;
+  min-height: 100vh;
 }
 .homeSocial .Kiri .profil {
   display: flex;
@@ -116,11 +113,13 @@ body {
   width: 58%;
   padding: 25px;
   box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 .homeSocial .postContainer .postCard {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 75%;
   background-color: #ab886d;
   padding: 15px;
   border-radius: 15px;
@@ -133,6 +132,9 @@ body {
   gap: 10px;
   width: 100%;
   background-color: #e4e0e1;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px 10px 0px 0px;
   font-size: 20px;
   font-weight: 600;
 }
@@ -140,17 +142,33 @@ body {
   width: 25px;
   height: 25px;
 }
-.homeSocial .postContainer .postCard .isiPost {
+.homeSocial .postContainer .postCard .gambarPost {
   width: 100%;
+}
+.homeSocial .postContainer .postCard .gambarPost img {
+  width: 100%;
+  height: auto;
+}
+.homeSocial .postContainer .postCard .gambarPost p {
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
 }
 .homeSocial .postContainer .postCard .likeCommentContainer {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  width: 100%;
+  gap: 20px;
 }
 .homeSocial .postContainer .postCard .likeCommentContainer .likeCo,
 .homeSocial .postContainer .postCard .likeCommentContainer .komCo {
   display: flex;
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-weight: 600;
+  color: black;
 }
 .homeSocial .postContainer .postCard .likeCommentContainer .likeCo button,
 .homeSocial .postContainer .postCard .likeCommentContainer .komCo button {
@@ -158,4 +176,46 @@ body {
   outline: none;
   border: none;
   cursor: pointer;
+}
+.homeSocial .Kanan {
+  width: 20%;
+  background-color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.homeSocial .Kanan h2 {
+  font-family: "Oleo Script", cursive;
+  font-size: 32px;
+  text-align: center;
+  width: 100%;
+}
+.homeSocial .Kanan .userCardContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.homeSocial .Kanan .userCardContainer .userCard {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px;
+  background-color: #d6c0b3;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+.homeSocial .Kanan .userCardContainer .userCard img {
+  width: 35px;
+  height: 35px;
+}
+.homeSocial .Kanan .userCardContainer .userCard h5 {
+  font-size: 20px;
+  font-family: "Montserrat";
+  font-weight: 700;
 }/*# sourceMappingURL=HomeSocial.css.map */

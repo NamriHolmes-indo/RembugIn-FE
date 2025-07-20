@@ -2,7 +2,7 @@
 	import '../assets/style/HomeSocial.css';
 	import NavKanan from '../komponen/NavKananHome.svelte';
 	import PostCard from '../komponen/PostCard.svelte';
-	import RegisterForm from '../komponen/RegisterForm.svelte';
+	import NewUserContainer from '../komponen/NewUserContainer.svelte';
 
 	let mode: 'login' | 'register' = 'login';
 </script>
@@ -13,4 +13,6 @@
 	<main class="postContainer">
 		<PostCard />
 	</main>
+
+	<NewUserContainer />
 </section>

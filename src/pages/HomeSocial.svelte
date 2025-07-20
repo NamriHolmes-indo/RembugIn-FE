@@ -1,14 +1,16 @@
-<script>
-	// Script section (jika perlu)
+<script lang="ts">
+	import '../assets/style/HomeSocial.css';
+	import NavKanan from '../komponen/NavKananHome.svelte';
+	import PostCard from '../komponen/PostCard.svelte';
+	import RegisterForm from '../komponen/RegisterForm.svelte';
+
+	let mode: 'login' | 'register' = 'login';
 </script>
 
-<h1>Selamat Datang di HomeSocial!</h1>
-<p>Ini adalah halaman sosial utama aplikasi kamu.</p>
+<section class="homeSocial">
+	<NavKanan />
 
-<style scoped>
-	h1 {
-		font-family: 'Oleo Script', cursive;
-		font-size: 2rem;
-		color: $dark; /* jika kamu pakai SCSS */
-	}
-</style>
+	<main class="postContainer">
+		<PostCard />
+	</main>
+</section>

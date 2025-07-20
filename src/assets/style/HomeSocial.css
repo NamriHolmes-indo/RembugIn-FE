@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Oleo+Script&family=Montserrat:wght@100..900&family=Poppins:wght@100..900&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e4e0e1;
+  color: #493628;
+}
+
+.homeSocial {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+.homeSocial h1,
+.homeSocial h2,
+.homeSocial h3,
+.homeSocial h4,
+.homeSocial h5 {
+  font-family: "Montserrat";
+  color: black;
+  font-weight: 600;
+  width: 100%;
+  margin: 0px;
+}
+.homeSocial .navHome {
+  background-color: white;
+  height: 100%;
+  min-height: 100vh;
+}
+.homeSocial .editButton {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.homeSocial .Kiri {
+  padding: clamp(15px, 5%, 50px) clamp(10px, 2.5%, 25px);
+  box-sizing: border-box;
+  width: 28%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.homeSocial .Kiri .profil {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.homeSocial .Kiri .profil .containerFotoProfil {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.homeSocial .Kiri .profil .containerFotoProfil .profilUser {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+}
+.homeSocial .Kiri .profil .containerFotoProfil button {
+  margin-left: -25px;
+  background-color: #e4e0e1;
+  border-radius: 10px;
+}
+.homeSocial .Kiri .profil .userName {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  font-size: clamp(10px, 2.1vh, 16px);
+}
+.homeSocial .Kiri .profil .editBio {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  font-size: clamp(10px, 2.1vh, 16px);
+}
+.homeSocial .Kiri .buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.homeSocial .Kiri .buttonContainer .addPost,
+.homeSocial .Kiri .buttonContainer .logOut {
+  width: 100%;
+  background-color: #e4e0e1;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.homeSocial .Kiri .buttonContainer .addPost img,
+.homeSocial .Kiri .buttonContainer .logOut img {
+  width: 100%;
+  height: auto;
+  max-width: 24px;
+  max-height: 24px;
+}
+.homeSocial .postContainer {
+  display: flex;
+  flex-direction: column;
+  width: 58%;
+  padding: 25px;
+  box-sizing: border-box;
+}
+.homeSocial .postContainer .postCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #ab886d;
+  padding: 15px;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+.homeSocial .postContainer .postCard .userContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background-color: #e4e0e1;
+  font-size: 20px;
+  font-weight: 600;
+}
+.homeSocial .postContainer .postCard .userContainer img {
+  width: 25px;
+  height: 25px;
+}
+.homeSocial .postContainer .postCard .isiPost {
+  width: 100%;
+}
+.homeSocial .postContainer .postCard .likeCommentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.homeSocial .postContainer .postCard .likeCommentContainer .likeCo,
+.homeSocial .postContainer .postCard .likeCommentContainer .komCo {
+  display: flex;
+}
+.homeSocial .postContainer .postCard .likeCommentContainer .likeCo button,
+.homeSocial .postContainer .postCard .likeCommentContainer .komCo button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}/*# sourceMappingURL=HomeSocial.css.map */

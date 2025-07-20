@@ -1,0 +1,179 @@
+@use 'init' as *;
+
+.homeSocial {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	min-height: 100vh;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		font-family: 'Montserrat';
+		color: black;
+		font-weight: 600;
+		width: 100%;
+		margin: 0px;
+	}
+
+	.navHome {
+		background-color: white;
+		height: 100%;
+		min-height: 100vh;
+	}
+
+	.editButton {
+		background-color: transparent;
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+
+	.Kiri {
+		// padding: 25px 50px;
+		padding: clamp(15px, 5%, 50px) clamp(10px, 2.5%, 25px);
+		box-sizing: border-box;
+		width: 28%;
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+
+		.profil {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+
+			.containerFotoProfil {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: flex-end;
+
+				.profilUser {
+					width: 100%;
+					max-width: 100px;
+					height: auto;
+				}
+
+				button {
+					margin-left: -25px;
+					background-color: $primary;
+					border-radius: 10px;
+				}
+			}
+
+			.userName {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 5px;
+
+				font-size: 16px;
+				font-size: clamp(10px, 2.1vh, 16px);
+			}
+
+			.editBio {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: flex-start;
+				gap: 5px;
+
+				font-size: clamp(10px, 2.1vh, 16px);
+			}
+		}
+
+		.buttonContainer {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+
+			.addPost,
+			.logOut {
+				width: 100%;
+				background-color: $primary;
+				border: none;
+				outline: none;
+				border-radius: 10px;
+				padding: 10px;
+
+				font-family: 'Montserrat';
+				font-weight: 600;
+				font-size: 14px;
+
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 10px;
+				cursor: pointer;
+
+				img {
+					width: 100%;
+					height: auto;
+					max-width: 24px;
+					max-height: 24px;
+				}
+			}
+		}
+	}
+
+	.postContainer {
+		display: flex;
+		flex-direction: column;
+		width: 58%;
+		padding: 25px;
+		box-sizing: border-box;
+
+		.postCard {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			background-color: $soft;
+			padding: 15px;
+			border-radius: 15px;
+			box-sizing: border-box;
+
+			.userContainer {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 10px;
+				width: 100%;
+				background-color: $primary;
+
+				img {
+					width: 25px;
+					height: 25px;
+				}
+
+				font-size: 20px;
+				font-weight: 600;
+			}
+
+			.isiPost {
+				width: 100%;
+			}
+
+			.likeCommentContainer {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				.likeCo,
+				.komCo {
+					display: flex;
+
+					button {
+						background-color: transparent;
+						outline: none;
+						border: none;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,14 +1,24 @@
 <script lang="ts">
-	let name = '';
-	let username = '';
-	let bio = '';
-	let email = '';
-	let password = '';
-	let retypePassword = '';
-	let tanggalLahir = '';
+	let name = localStorage.getItem('name') || '';
+	let username = localStorage.getItem('username') || '';
+	let bio = localStorage.getItem('bio') || '';
+	let email = localStorage.getItem('email') || '';
+	let password = localStorage.getItem('password') || '';
+	let retypePassword = localStorage.getItem('retypePassword') || '';
+	let tanggalLahir = localStorage.getItem('tanggalLahir') || '';
 	let showPassword = false;
 	let showRetypePassword = false;
 	let error = '';
+	let success = '';
+	let loading = false;
+
+	$: localStorage.setItem('name', name);
+	$: localStorage.setItem('username', username);
+	$: localStorage.setItem('bio', bio);
+	$: localStorage.setItem('email', email);
+	$: localStorage.setItem('password', password);
+	$: localStorage.setItem('retypePassword', retypePassword);
+	$: localStorage.setItem('tanggalLahir', tanggalLahir);
 
 	function validateEmail(email: string): boolean {
 		return email.includes('@') && email.includes('.');
@@ -35,24 +45,12 @@
 
 	$: usia = tanggalLahir ? hitungUsia(tanggalLahir) : null;
 
-	$: isFormValid =
-		name.trim() &&
-		username.trim() &&
-		email.trim() &&
-		password.trim() &&
-		retypePassword.trim() &&
-		tanggalLahir &&
-		validateEmail(email) &&
-		validatePassword(password) &&
-		password === retypePassword &&
-		usia !== null &&
-		usia >= 17;
-
-	function handleRegister() {
+	async function handleRegister() {
 		error = '';
+		success = '';
 
 		if (!validateEmail(email)) {
-			error = "Email tidak valid. Harus mengandung '@' dan '.'.";
+			error = "Email tidak valid. Harus mengandung '@' dan '.'";
 			return;
 		}
 
@@ -71,8 +69,47 @@
 			return;
 		}
 
-		alert(`Berhasil daftar!\nNama: ${name}\nUsername: ${username}\nEmail: ${email}`);
+		loading = true;
+
+		try {
+			const response = await fetch('http://localhost:8000/api/register', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					username: username,
+					password: password,
+					nama_lengkap: name,
+					bio: bio || 'Pengguna baru',
+					url_foto: 'foto.jpg',
+					tanggal_lahir: tanggalLahir
+				})
+			});
+
+			const data = await response.json();
+
+			if (!response.ok) {
+				error = data?.message || 'Registrasi gagal.';
+			} else {
+				success = 'Registrasi berhasil!';
+
+				// Hapus semua input & localStorage
+				name = '';
+				username = '';
+				bio = '';
+				email = '';
+				tanggalLahir = '';
+				localStorage.clear();
+			}
+		} catch (err) {
+			error = 'Terjadi kesalahan koneksi.';
+		} finally {
+			loading = false;
+		}
 	}
+
+	$: formLengkap = name && username && bio && email && password && retypePassword && tanggalLahir;
 </script>
 
 <form on:submit|preventDefault={handleRegister}>
@@ -81,6 +118,9 @@
 	{#if error}
 		<p style="color: red">{error}</p>
 	{/if}
+	{#if success}
+		<p style="color: green">{success}</p>
+	{/if}
 
 	<input type="text" bind:value={name} placeholder="Nama Lengkap" required />
 	<input type="text" bind:value={username} placeholder="Username" required />
@@ -88,13 +128,10 @@
 	<p>{bio.length}/50 karakter</p>
 	<input type="text" bind:value={bio} placeholder="Bio Singkat (maks 50 karakter)" maxlength="50" />
 
+	<input type="date" bind:value={tanggalLahir} required />
 	{#if tanggalLahir}
 		<p>Usia Anda: {usia} tahun</p>
-		{#if usia !== null && usia < 17}
-			<p style="color: orange">⚠️ Usia Anda belum cukup untuk mendaftar (minimal 17 tahun).</p>
-		{/if}
 	{/if}
-	<input type="date" bind:value={tanggalLahir} required />
 
 	<input type="email" bind:value={email} placeholder="Email" required />
 
@@ -126,5 +163,11 @@
 		</button>
 	</div>
 
-	<button class="tombolDafLog" type="submit" disabled={!isFormValid}>Daftar</button>
+	<button
+		class="tombolDafLog"
+		type="submit"
+		disabled={!formLengkap || (usia !== null && usia < 17) || loading}
+	>
+		{loading ? 'Mendaftar...' : 'Daftar'}
+	</button>
 </form>
